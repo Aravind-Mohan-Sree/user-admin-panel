@@ -1,0 +1,16 @@
+<!-- alert container -->
+<% if (locals.invalidAlertMessage.length > 0) { %>
+  <div class="form-text bg-danger-subtle rounded-1 text-center text-danger invalid-alert-container p-1">
+    <%= invalidAlertMessage %>
+  </div>
+<% } %>
+
+<script>    
+  document.addEventListener('DOMContentLoaded', () => {
+    const duration = 5000;
+
+    setTimeout(() => {
+      document.querySelector('.invalid-alert-container').style.display = 'none';
+    }, duration);     
+  });
+</script>

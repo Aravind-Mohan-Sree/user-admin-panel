@@ -1,0 +1,57 @@
+<style>
+  /* styles for signup form container */
+  .content-div {
+    width: 20rem;
+    position: absolute;
+    border: solid .1rem white;
+    border-radius: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+  }
+
+  /* apply styles when viewport reaches a width of 768px */
+  @media (min-width: 48em) {
+    .content-div {
+      width: 23rem;
+    }
+  }
+
+  /* apply styles when viewport reaches a width of 992px */
+  @media (min-width: 62em) {
+    .content-div {
+      width: 26rem;
+    }
+  }
+</style>
+
+<!-- signup form container -->
+<div class="content-div bg-opacity-75 bg-dark">
+  <!-- heading for container -->
+  <div class="mt-4">
+    <h2 class="text-center fw-bold">ADD NEW USER!</h2>
+  </div>
+  <!-- signup form -->
+  <form class="p-4" method="post" action="/admin/add-user">
+    <div class="mb-3">
+      <label for="name" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="" name="email" class="form-control" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" autocomplete="off">
+    </div>
+    <div class="mb-4">
+      <label for="password" class="form-label">Confirm Password</label>
+      <input type="password" name="confirmPassword" class="form-control" autocomplete="off">
+      <!-- procedure for including a part of HTML -->
+      <%- include('invalidAlert') %>
+    </div>
+    <button type="submit" class="btn btn-warning d-block mx-auto">Add</button>
+  </form>
+</div>

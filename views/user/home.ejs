@@ -1,0 +1,40 @@
+<style>
+  /* styles for centering hero-content container */
+  .content-div {    
+    border: solid .1rem rgb(255, 255, 255);
+    border-radius: 1.5rem;  
+    backdrop-filter: blur(2px);
+    width: 85%;
+    padding: 1rem;   
+  }  
+
+  h1 {
+    font-size: 1.4rem; 
+  }
+
+  @media (min-width: 48em) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (min-width: 64em) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+</style>
+
+<!-- hero container -->
+<div class="content-div">
+  <div>
+    <h1 class="text-center fw-bold">Hi <br> <%= username %></h1>
+  </div>  
+  <!-- button for logout -->
+  <div class="mt-4 mb-2 mb-lg-4">
+    <a class="btn btn-danger w-50 offset-3" href="/user/logout">Logout</a>
+  </div>
+</div>
+
+<!-- procedure for including a part of HTML -->
+<%- include('logAlert') %>

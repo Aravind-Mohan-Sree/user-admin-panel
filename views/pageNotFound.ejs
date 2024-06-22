@@ -1,0 +1,25 @@
+<style>
+  /* styles for page not found page */
+  .content-div {  
+    position: absolute;
+    /* font-size: 8rem; */
+    padding-inline: 3rem;
+    border: solid .1rem white;
+    border-radius: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+  }
+
+  h1 {
+    font-size: calc(5rem + 12vw);
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="content-div text-center">
+  <h1>404</h1>
+  <span class="d-block display-2 text-danger">Page Not Found!</span>
+  <a href="/user/login" class="btn btn-warning mt-4 mb-4">Go Back</a> 
+</div>

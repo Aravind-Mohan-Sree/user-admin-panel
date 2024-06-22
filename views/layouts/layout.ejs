@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="shortcut icon" href="<%= favicon %>" type="image/x-icon">
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap');
+  
+    /* global styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      color: rgb(255, 255, 255);
+      font-family: 'Glegoo', serif;
+      background: url('/public/assets/background-image.jpg') no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <%- body %>
+  
+  <!-- sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>  
+</body>
+</html>

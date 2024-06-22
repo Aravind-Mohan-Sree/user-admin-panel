@@ -1,0 +1,36 @@
+<style>
+  /* styles for log alert container */
+  .log-alert-container {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .alert-red {
+    background-color:rgb(255, 214, 214);
+    color: red;
+  }
+
+  .alert-green {
+    background-color: rgb(215, 255, 215);
+    color: green;
+  }
+</style>  
+
+<!-- alert container -->
+<% if (locals.logAlertMessage.length > 0 || locals.logAlertMessage) { %>  
+  <div class="alert log-alert-container text-center <%= logAlertMessage[0] ? logAlertMessage[0].color : logAlertMessage.color %>">
+    <%= logAlertMessage[0] ? logAlertMessage[0].message : logAlertMessage.message %>
+  </div>
+<% } %>
+
+<script>    
+  document.addEventListener('DOMContentLoaded', () => {
+    const duration = 5000;
+
+    setTimeout(() => {
+      document.querySelector('.log-alert-container').style.display = 'none';
+    }, duration);     
+  });
+</script>

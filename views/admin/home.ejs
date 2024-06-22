@@ -1,0 +1,105 @@
+<style>
+  .hero-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .btn {
+    width: 100px;
+  }
+
+  .user-search-box form {
+    width: 500px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80vw;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .user-search-box form input {
+    width: 70%;
+    border: none;
+    outline: none;
+    margin-right: 1rem;
+  }
+</style>
+
+<%- include('navbar') %>
+<div class="hero-container container">
+  <div class="user-search-box">
+    <form action="/admin/home" method="get">
+      <input class="p-2 p-md-3 rounded-1" type="text" name="search" placeholder="Search User" autocomplete="off">
+      <button class="btn btn-info">Search</button>
+    </form>
+  </div>
+  <div class="add-user-box">
+    <a href="/admin/add-user" class="btn btn-success">Add User</a>
+  </div>
+  <div class="bg-info rounded-2 p-3 table table-responsive">
+    <table class="table align-middle mb-0">
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">Sl</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Mail address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider border-bottom border-dark">
+        <% userDetails.forEach ((user, index) => { %>
+          <tr>
+            <th scope="row">
+              <%= index + 1 %>
+            </th>
+            <td>
+              <%= user.username %>
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
+            <td>
+              <a href="/admin/edit-user/<%= user.id %>" class="btn btn-warning">Edit</a>
+              <a href="/admin/delete-user/<%= user.id %>" class="btn btn-danger delete-user">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include('logAlert') %>
+
+<script>
+  const deleteUser = document.querySelectorAll('.delete-user')
+  deleteUser.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+          window.location.href = e.target.href;
+        }
+      });
+    })
+  })
+</script>

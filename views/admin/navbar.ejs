@@ -1,0 +1,21 @@
+<style>
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    width: 100vw;
+  }
+</style>
+
+<div class="navbar-container">
+  <div class="logo">
+    <h2 class="mb-0 fw-bold">Admin</h2>
+  </div>
+
+  <div class="logout">
+    <a href="/admin/logout" class="btn btn-danger">Logout</a>
+  </div>
+</div>
+
+<%- include('alert') %>
